@@ -11,6 +11,7 @@ export const ContainerStyle = styled.div`
     justify-content: center;
 
   main#container-wrapper {
+    width: 90%;
     max-width: 90%;
     height: 100%;
 
