@@ -22,4 +22,12 @@ export const ContainerStyle = styled.div`
 
     margin-top: 2rem;
   }
+
+  @media screen and (min-width: 575.98px) and (max-width:  1199.98px) {
+    & {
+      main#container-wrapper {
+        width: 80%;
+      }
+    }
+  }
 `;

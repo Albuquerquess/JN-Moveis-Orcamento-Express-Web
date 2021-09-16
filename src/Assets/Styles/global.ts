@@ -11,16 +11,28 @@ const GlobalStyles = createGlobalStyle`
         --color-gray: #9B9B9B;
         --color-dark-gray: #202020;
         --color-black: #000000;
+
+        // breakpoints
+        --breakpoints-x-small: 575.98px;
+        --breakpoints-small: 767.98px;
+        --breakpoints-mediun: 991.98px;
+        --breakpoints-large: 1199.98px;
+        --breakpoints-x-large: 1399.98px;
+
+        font-size: 62.5%;
     }
     
     body {
-        font-size: 62.5%;
         font-family: 'Ubuntu', sans-serif;
         line-height: 1;
 
         display: flex;
         align-items: center;
         justify-content: center;
+
+        input:focus, textarea:focus, select:focus{
+        outline: none;
+    }
 
        }
 
@@ -29,6 +41,12 @@ const GlobalStyles = createGlobalStyle`
             color: blue;
             text-decoration: none; /* no underline */
             color: var(--color-white)
+        }
+
+        ul {
+            list-style-type: ;
+            margin: 0;
+            padding: 0;
         }
 
 `

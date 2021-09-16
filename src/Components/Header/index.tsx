@@ -11,3 +11,4 @@ const Header: React.FC = () => {
 }
 
 export default Header;
+// Fazer a responsividade para a Home e fazer a comunicação com o Backend para o cadastro dos dados do usuário. Criar também um context para armazenar estes dados

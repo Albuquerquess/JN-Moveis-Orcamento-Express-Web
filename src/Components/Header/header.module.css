@@ -3,9 +3,19 @@ header#container {
     justify-content: center;
     
     width: 100%;
+    margin-bottom: 5rem;
 }
 
 img#logo {
-    width: 50%;
+    width: 38%;
 }
 
+@media screen and (min-width:  767.98px){
+    header#container {
+        margin-bottom: 8rem;
+    }
+
+    img#logo {
+        width: 20%;
+    }
+}

@@ -5,8 +5,8 @@ import buttonStyles from './button.module.css';
 // Types
 import { buttonProps } from '../../Types/button'
 
-const Button: React.FC<buttonProps> = ({label, to}) => {
-  return <button className={buttonStyles.container}>
+const Button: React.FC<buttonProps> = ({label, to, type, handleClick}) => {
+  return <button className={buttonStyles.container} type={type || 'button'} onClick={handleClick}>
     <Link to={to ? to : ''} className={buttonStyles.link}>
       {label || 'Continar'}
       </Link>

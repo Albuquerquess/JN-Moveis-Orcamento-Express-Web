@@ -1,6 +1,8 @@
 import React from 'react';
+// Components
 import Button from '../../Components/Button';
-
+//Consts
+import routesNames from '../../Consts/routeNames'
 // Styles
 import welcomeStyles from './welcome.module.css';
 
@@ -9,7 +11,7 @@ const Welcome: React.FC = () => {
     <main>
       MAIN
     </main>
-    <Button to="/contatos"/>
+    <Button to={routesNames.CONTACT}/>
   </div>;
 }
 
