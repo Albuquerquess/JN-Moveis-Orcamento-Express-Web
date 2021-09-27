@@ -1,6 +1,6 @@
 import React from 'react';
 // Assets
-import Logo from '../../Assets/Static/Pages/logo.svg'
+import Logo from '../../Assets/Static/SVGs/Common/logo.svg'
 // Styles
 import headerStyles from './header.module.css'
 

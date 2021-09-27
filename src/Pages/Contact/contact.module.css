@@ -14,7 +14,7 @@ div#container > h1 {
     margin-bottom: 5rem;
 }
 
-div#container > form > label:last-of-type {
+div#container > form > div:last-of-type {
     margin-bottom: 4rem;
 }
 

@@ -1,0 +1,44 @@
+div.select-icon-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: auto;
+    height: 2.2rem;
+    color: var(--color-white);
+}
+
+div.select-icon-wrapper > svg {
+    height: 100%;
+    width: auto;
+    margin-right: 1rem;
+}
+
+div.react-select__control {
+    height: 3.6rem;
+}
+
+@media screen and (min-width: 767.98px) {
+    div.select-icon-wrapper {
+        height: 2.5rem;
+        font-size: 1.8rem;
+    }
+    div.react-select__control  {
+        height: 4.5rem;
+    }
+}
+
+@media screen and (min-width: 991.98px) {
+    div.react-select__control  {
+        height: 5.9rem;    
+    }
+
+    div.react-select__placeholder {
+        font-size: 2.1rem;
+    }
+
+    div.select-icon-wrapper {
+        height: 3.4rem;
+        font-size: 2.1rem;
+    }
+}

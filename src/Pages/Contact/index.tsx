@@ -38,11 +38,10 @@ const Contact: React.FC = () => {
   return <div id={contactStyles.container}>
     <h1>Informações de contato</h1>
     <Form validationSchema={contactSchema} onSubmit={(values) => onSubmit(values)} initialValues={contactInitialValues}>
-
-           <Input type="text" field="fullName" placeholder="Insira o seu nome completo" label="Nome completo: " />
-           <Input type="text" field="phone" placeholder="Insira o seu celular" label="Celular: " />
-           <Input type="text" field="email" placeholder="Insira o seu email" label="Email: " />
-           <Button type="submit" to="#"/>
+      <Input type="text" field="fullName" placeholder="Insira o seu nome completo" label="Nome completo: " />
+      <Input type="text" field="phone" placeholder="Insira o seu celular" label="Celular: " />
+      <Input type="text" field="email" placeholder="Insira o seu email" label="Email: " />
+      <Button type="submit" to="#"/>
     </Form>
   </div>;
 }

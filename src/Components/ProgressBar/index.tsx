@@ -23,6 +23,7 @@ const ProgressBar: React.FC<progressBarProps> = ({ percent }) => {
     {({ accomplished, index }: any) => (
       <div className={`${progressBarStyles.iconWrapper} indexedStep ${accomplished ? "accomplished" : ""}`}>
         <img src={accomplished ? contactGreen : contact } alt="CONTATO" className={`${progressBarStyles.icon} `} />
+        <p className={progressBarStyles.progressBarLabel}>Contato</p>
       </div>
     )}
   </Step>
@@ -30,6 +31,8 @@ const ProgressBar: React.FC<progressBarProps> = ({ percent }) => {
     {({ accomplished, index }: any) => (
       <div className={`${progressBarStyles.iconWrapper} indexedStep ${accomplished ? "accomplished" : ""}`}>
         <img src={accomplished ? detailsGreen : details } alt="DETALHES" className={progressBarStyles.icon} />
+        <p className={progressBarStyles.progressBarLabel}>Detalhes</p>
+
       </div>
     )}
   </Step>
@@ -37,6 +40,8 @@ const ProgressBar: React.FC<progressBarProps> = ({ percent }) => {
     {({ accomplished, index }: any) => (
       <div className={`${progressBarStyles.iconWrapper} indexedStep ${accomplished ? "accomplished" : ""}`}>
         <img src={accomplished ? furnituresGreen : furnitures } alt="MÓVEIS" className={progressBarStyles.icon} />
+        <p className={progressBarStyles.progressBarLabel}>Móveis</p>
+
       </div>
     )}
   </Step>
@@ -44,6 +49,8 @@ const ProgressBar: React.FC<progressBarProps> = ({ percent }) => {
     {({ accomplished, index }: any) => (
       <div className={`${progressBarStyles.iconWrapper} indexedStep ${accomplished ? "accomplished" : ""}`}>
         <img src={accomplished ? budgetGreen : budget } alt="ORÇAMENTOS" className={progressBarStyles.icon} />
+        <p className={progressBarStyles.progressBarLabel}>Orçamento</p>
+
       </div>
     )}
   </Step>

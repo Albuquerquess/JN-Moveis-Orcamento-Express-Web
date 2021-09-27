@@ -1,3 +1,7 @@
 export const contactBaseURLs = {
-    registerLeads: '/leads/register'
+    registerLeads: '/leads/register',
+}
+
+export const personalizeBaseUrl = {
+    saveColorAndTamponade: '/leads/colors-and-tamponade/save'
 }

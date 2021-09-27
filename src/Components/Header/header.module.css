@@ -12,10 +12,10 @@ img#logo {
 
 @media screen and (min-width:  767.98px){
     header#container {
-        margin-bottom: 8rem;
+        margin-bottom: 14rem;
     }
 
     img#logo {
-        width: 20%;
+        width: 15.5rem;
     }
 }
