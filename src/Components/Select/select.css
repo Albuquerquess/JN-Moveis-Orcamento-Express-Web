@@ -12,6 +12,7 @@ div.select-icon-wrapper > svg {
     height: 100%;
     width: auto;
     margin-right: 1rem;
+    border-radius: .5rem;
 }
 
 div.react-select__control {
