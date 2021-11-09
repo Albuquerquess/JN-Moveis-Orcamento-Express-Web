@@ -3,6 +3,8 @@ interface cardOptions {
     label: React.HTMLDivElement;
 }
 export interface selectCardProps {
-    options: cardOptions[]
-    setValue: Dispatch<SetStateAction<string>>
+    options: cardOptions[],
+    defaultValue?: cardOptions | null | undefined,
+    setValue: Dispatch<SetStateAction<string>>,
+    isDisabled?: boolean
 }

@@ -1,7 +1,7 @@
 // Contacts
 export interface formContactSchema {
     email: string
-    fullName: string
+    fullname: string
     phone: string
 }
 

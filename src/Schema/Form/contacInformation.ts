@@ -4,7 +4,7 @@ export const contactSchema = Yup.object().shape({
     email: Yup.string()
         .required('Informe o email')
         .email('Informe um email válido'),
-    fullName: Yup.string()
+    fullname: Yup.string()
         .required('Informe um nome completo')
         .min(5, 'O nome deve ter no minimo 5 caracteres')
         .max(100, 'O nome deve ter no máximo 100 caracteres')

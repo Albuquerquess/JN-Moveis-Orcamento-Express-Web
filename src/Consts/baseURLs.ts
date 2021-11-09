@@ -5,3 +5,7 @@ export const contactBaseURLs = {
 export const personalizeBaseUrl = {
     saveColorAndTamponade: '/leads/colors-and-tamponade/save'
 }
+
+export const furnituresBaseUrl = {
+    getFurnituresByRoom: '/furnitures/room'
+}

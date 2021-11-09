@@ -1,0 +1,12 @@
+div#furniture-button-container {
+    margin-top: 2rem;
+}
+
+
+@media screen and (min-width: 991.98px) {
+    div#furniture-button-container {
+        width: 46rem;
+    }
+    
+}
+
