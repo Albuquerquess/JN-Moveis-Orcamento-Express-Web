@@ -2,7 +2,7 @@ import styled from 'styled-components';
 // Types
 import { styleCardProps } from '../../Types/cards';
 
-export const SimpleCardContainer = styled.div<styleCardProps>`
+export const CardContainer = styled.div<styleCardProps>`
     width: 100%;
     min-height: 44rem;
     max-height: 100%;
@@ -51,11 +51,14 @@ export const SimpleCardContainer = styled.div<styleCardProps>`
         }
 
         section.card-wrapper {
+            width: 100%;
             section.card-body {
                 margin-bottom: 1.3rem;
 
                 h2.card-title {
                     font-size: 1.4rem;
+                    font-weight: bold;
+                    
                     margin: 0;
                     margin-bottom: 1rem;
                 }
@@ -71,7 +74,14 @@ export const SimpleCardContainer = styled.div<styleCardProps>`
             }
 
             section.card-footer {
-                label.card-input-lengh {
+                
+                p.card-label {
+                    font-weight: bold;
+                    font-size: 1.4rem;
+                    margin: 0;
+                    margin-bottom: 1rem;
+                }
+                label.card-input-length {
                     width: 100%;
                     height: 100%;
                     
@@ -79,14 +89,8 @@ export const SimpleCardContainer = styled.div<styleCardProps>`
                     flex-direction: column;
                     align-items: flex-start;
                     
-                    margin-bottom: 1rem;
+                    margin-bottom: 2rem;
 
-                    p.card-label {
-                        font-weight: bold;
-                        font-size: 1.4rem;
-                        margin: 0;
-                        margin-bottom: 1rem;
-                    }
 
                     input.length-of-furniture {
                         width: 100%;
@@ -98,14 +102,17 @@ export const SimpleCardContainer = styled.div<styleCardProps>`
                     }
                 }
 
+                section.card-variations {
+                    margin-bottom: 2rem;
+                }
+
                 button.card-button {
                     width: 100%;
                     height: 3.6rem;
                    
                     display: flex;
-                    flex-direction: row;
+                    justify-content: space-between;
                     align-items: center;
-                    justify-content: space-evenly;
                    
                     background: var(${props => props.clicked ? '--color-red' : '--color-light-green'});
                    
@@ -113,26 +120,30 @@ export const SimpleCardContainer = styled.div<styleCardProps>`
                     border-radius: .5rem;
 
                     margin-top: 1rem;
-
-                    div.button-wrapper {
-                        width: 58%;
-                        height: 100%;
+                    
+                    div.label-wrapper {
+                        width: 55%;
                         display: flex;
-                        flex-direction: row;
                         align-items: center;
-                        justify-content: space-between;
-                        
+                        justify-content: flex-start;
                         p.button-label {
                             font-size: 2rem;
                             font-weight: bold;
                             color: var(--color-white);
                         }
-    
+                    }
+
+                    div.icon-wrapper {
+                            width: 40%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-end;
+
                         div.icon-container {
                             height: 2.6rem;
                             width: auto;
-                            transform: rotate(${props => props.clicked ? '45deg' : '0deg'});
-	                        transition: .3s ease;
+                            transform: rotate(${props => props.clicked ? '135deg' : '0deg'});
+                            transition: .4s ease;
     
                             & > svg {
                                 width: 100%;
@@ -140,6 +151,7 @@ export const SimpleCardContainer = styled.div<styleCardProps>`
                             }
     
                         }
+
                     }
                     
                 }
@@ -148,21 +160,28 @@ export const SimpleCardContainer = styled.div<styleCardProps>`
     }
 
     @media screen and (min-width: 991.98px) {
-        height: 70.8rem;
-        width: 45.8rem;
+        width: ${props => props.orientation === 'horizontal' ? '100%' : '45.8rem'};
+        height: 100%;
+        min-height: ${props => props.orientation === 'horizontal' && '56rem'};
 
         & > main.card-main {
+            flex-direction: ${props => props.orientation === 'horizontal' && 'row-reverse'};
+            justify-content: ${props => props.orientation === 'horizontal' && 'space-between'};
+            padding: ${props => props.orientation === 'horizontal' && '4rem'};
+            
             header.card-header {
-                width: 41.8rem;
+                width: ${props => props.orientation === 'horizontal' ? '45%' : '41.8rem'};
+
                 height: 41.8rem;
 
                 div.card-thumb {
-                    width: 41.8rem;
+                    width: ${props => props.orientation === 'horizontal' ? '100%' : '41.8rem' };
                     height: 41.8rem;
                 }
             }
             
             section.card-wrapper {
+                width: ${props => props.orientation === 'horizontal' && '45%'};
                 section.card-body {
                     h2.card-title {
                         font-size: 3.2rem;
@@ -171,6 +190,38 @@ export const SimpleCardContainer = styled.div<styleCardProps>`
                     p.card-description {
                         font-size: 2rem;
                         margin-bottom: 4.4rem;
+                    }
+                }
+                
+                section.card-footer {
+                    p.card-label {
+                            font-size:2.4rem;
+                            margin-bottom: 2rem;
+                    }
+
+                    label.card-input-length {
+
+                        input.length-of-furniture {
+                            height:  4.9rem;
+                            font-size: 2rem;
+
+                        }
+                    }
+
+                    section.card-variation > p.card-label {
+                        font-size: 2.4rem;
+
+                    }
+                    button.card-button {
+                        height: 5.8rem;
+
+                        div.icon-wrapper > div.icon-container {
+                            height: 3.8rem;
+                        }
+
+                        div.label-wrapper > p.button-label {
+                            font-size: 3rem;
+                        }
                     }
                 }
             }

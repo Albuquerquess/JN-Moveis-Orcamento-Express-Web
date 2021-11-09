@@ -1,6 +1,9 @@
 import React from 'react';
+import { useLocation } from 'react-router';
+
 import { ProgressBar as PB, Step } from "react-step-progress-bar";
 import "react-step-progress-bar/styles.css";
+
 // Assets
 import budget from '../../Assets/Static/SVGs/ProgressBar/budget.svg'
 import budgetGreen from '../../Assets/Static/SVGs/ProgressBar/budget-green.svg'
@@ -15,10 +18,21 @@ import { progressBarProps } from '../../Types/progressBar';
 import './PBModify.css';
 // Styles
 import progressBarStyles from './progressBar.module.css';
+// Consts
+import routeNames from '../../Consts/routeNames';
 
-const ProgressBar: React.FC<progressBarProps> = ({ percent }) => {
+const ProgressBar: React.FC<progressBarProps> = () => {
+  const location = useLocation()
+
+  const pathname = location.pathname
+  const percent = () => {
+    if (pathname.includes(routeNames.CONTACT)) return 26
+    if (pathname === routeNames.PERSONALIZATION) return 50
+    if (pathname === routeNames.FURNITURES) return 75
+    if (pathname === 'a') return 100
+  }
   return <div id={progressBarStyles.pgContainer}>
-    <PB percent={percent} filledBackground="#9B9B9B">
+    <PB percent={percent()} filledBackground="#9B9B9B">
     <Step>
     {({ accomplished, index }: any) => (
       <div className={`${progressBarStyles.iconWrapper} indexedStep ${accomplished ? "accomplished" : ""}`}>

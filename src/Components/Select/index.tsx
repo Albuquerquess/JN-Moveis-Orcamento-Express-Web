@@ -5,16 +5,16 @@ import { selectCardProps } from '../../Types/cardSelect'
 // Styles
 import './select.css'
 
-const CardSelect: React.FC<selectCardProps> = ({ options, setValue }) => {
+const CardSelect: React.FC<selectCardProps> = ({ options, setValue, defaultValue, isDisabled }) => {
 
     const customStyles = {
-        control: (base: any, state: any) => ({
+        control: (base: any) => ({
             ...base,
-            background: "#909090",
+            background: isDisabled ? 'rgba(144, 144, 144, 0.4)' : '#909090',
             color: "white",
             borderRadius: '.5rem',
-            boxShadow: state.isFocused ? null : null,
-            borderColor: "#909090",
+            boxShadow: null,
+            borderColor: isDisabled ? 'rgba(144, 144, 144, 0.4)' : '#909090',
             fontWeight: 'bold',
             fontSize: '14px',
         }),
@@ -49,17 +49,19 @@ const CardSelect: React.FC<selectCardProps> = ({ options, setValue }) => {
         })
       };
 
-  return <Select
-    className='react-select-container'
-    classNamePrefix="react-select"
-    styles={customStyles}
-    options={options}
-    placeholder="Selecione uma opção"
-    components={{
-        IndicatorSeparator: () => null,
-        }}
-    onChange={(value) => setValue(value?.value)}
-  />;
+    return <Select
+        className='react-select-container'
+        classNamePrefix="react-select"
+        styles={customStyles}
+        options={options}
+        placeholder="Selecione uma opção"
+        defaultValue={defaultValue || undefined}
+        components={{
+            IndicatorSeparator: () => null,
+            }}
+        onChange={(value) => setValue(Number(value?.value))}
+        isDisabled={isDisabled}
+    />;
 }
 
 export default CardSelect;

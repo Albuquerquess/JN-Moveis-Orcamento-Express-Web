@@ -1,5 +1,5 @@
 export const contactInitialValues = {
-    fullName: '',
+    fullname: '',
     email: '',
     phone: ''
 }

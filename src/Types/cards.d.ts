@@ -1,28 +1,40 @@
 import React, { Dispatch, SetStateAction } from "react";
 
-interface selectVariations {
+import { variations } from './furnitures'
+
+export interface selectVariations {
     value: string; 
     label: React.HTMLDivElement;
 }
 
 export interface cardProps {
-    orientation?: 'vertical' | 'horizontal' | undefined;
-    variations?: selectVariations[];
-    withButton?: boolean;
-    withLenghInput?: boolean;
+    variations?: selectVariations[];    
     title?: string;
     description?: string;
     setCurrentValue: Dispatch<SetStateAction<string>>
-
 }
 
 export interface styleCardProps {
     orientation?: 'vertical' | 'horizontal' | undefined;
-    backgroundImage: string;
+    backgroundImage: string; 
     clicked?: boolean
 }
 
 export interface colorsAndTamponadeIdsSchema {
-    colorId: string;
-    tamponadeId: string;
+    color_id: string;
+    tamponade_id: string;
+}
+
+// Furniture Card
+
+export interface furnitureCardProps {
+    orientation?: 'vertical' | 'horizontal' | undefined;
+    variations: variations[];
+    withButton?: boolean;
+    withLengthInput?: boolean;
+    title?: string;
+    description?: string;
+    roomTag: string;
+    furniture_tag: string
+    
 }

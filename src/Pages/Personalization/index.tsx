@@ -1,31 +1,34 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom'
-// Components
-import { SimpleCard } from '../../Components/Card'
-import Button from '../../Components/Button'
-// Styles
-import personalizationStyles from './personalization.module.css'
+import { useHistory } from 'react-router-dom';
 // Assets
-import HighPrice from '../../Assets/Static/SVGs/Components/Card/highPrice'
-import LowPrice from '../../Assets/Static/SVGs/Components/Card/lowPrice'
-import MediumPrice from '../../Assets/Static/SVGs/Components/Card/mediumPrice'
-// Context
-import { ColorAndTamponadeContext } from '../../Context/colorAndTamponade'
-// Api
-import Api from '../../Services/Api/api'
+import HighPrice from '../../Assets/Static/SVGs/Components/Card/highPrice';
+import LowPrice from '../../Assets/Static/SVGs/Components/Card/lowPrice';
+import MediumPrice from '../../Assets/Static/SVGs/Components/Card/mediumPrice';
+import Button from '../../Components/Button';
+// Components
+import { SimpleCard } from '../../Components/Card/simpleCard';
 // Consts
-import { personalizeBaseUrl } from '../../Consts/baseURLs'
-import routeNames from '../../Consts/routeNames'
+import { personalizeBaseUrl } from '../../Consts/baseURLs';
+import routeNames from '../../Consts/routeNames';
+// Context
+import { ColorAndTamponadeContext } from '../../Context/colorAndTamponade';
+// Api
+import Api from '../../Services/Api/api';
+// Styles
+import personalizationStyles from './personalization.module.css';
 
 const Personalization: React.FC = () => {
   const [colorId, setColorId] = React.useState('')
   const [tamponadeId, setTamponadeId] = React.useState('')
   
-  const CeTContext = React.useContext(ColorAndTamponadeContext)
+  const colorAndTamponadeContext = React.useContext(ColorAndTamponadeContext)
+  const furnitureTamponade = colorAndTamponadeContext.furnitureTamponade
+  const setFurnitureTamponade = colorAndTamponadeContext.setFurnitureTamponade
+  const furnitureColor = colorAndTamponadeContext.furnitureColor
+  const setFurnitureColor = colorAndTamponadeContext.setFurnitureColor
   const history = useHistory()
   
-
-  async function handleSubmit(color_id: string, tamponade_id: string) {
+  async function saveColorAndTamponadeConfigurationsOnLocalStorage(color_id: string, tamponade_id: string) {
     if (!color_id) alert('Selecione uma cor')
     if (!tamponade_id) alert('Selecione um tamponamento')
     
@@ -33,11 +36,11 @@ const Personalization: React.FC = () => {
       try {
           const response = await Api.post(personalizeBaseUrl.saveColorAndTamponade, {color_id, tamponade_id})
         if (response.status === 204) {
-          CeTContext.setColorAndTamponadeId({colorId: color_id, tamponadeId: tamponade_id})
-          return history.push(routeNames.FURNITURES)
-
-          
+          setFurnitureTamponade(tamponade_id)
+          setFurnitureColor(color_id)
+          return history.push(routeNames.FURNITURES) // jogar o usuário para a página dos móveis com os dados de cor e tamponamento dentro dos params
         }
+        
       } catch (error) {
         alert('Ocorreu um erro ao cadastrar as configurações de cor e tamponamento. Por favor, tente novamente')
       }
@@ -66,7 +69,7 @@ const Personalization: React.FC = () => {
       <SimpleCard setCurrentValue={setTamponadeId} variations={tamponadeTypes} title="Tamponamento" description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna." />
     </main>
     <section id={personalizationStyles.button}>
-      <Button handleClick={() => handleSubmit(colorId, tamponadeId)} />
+      <Button handleClick={() => saveColorAndTamponadeConfigurationsOnLocalStorage(colorId, tamponadeId)} />
     </section>
   </div>;
 }
