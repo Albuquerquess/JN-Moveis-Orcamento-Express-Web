@@ -5,7 +5,7 @@ export const ContainerStyle = styled.div`
     min-height: 100vh;
 
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 
   main#container-wrapper {

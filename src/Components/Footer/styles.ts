@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const FooterContainer = styled.div`
+export const FooterContainer = styled.footer`
     width: 100vw;
     min-height: 34.4rem;
     
@@ -12,9 +12,12 @@ export const FooterContainer = styled.div`
     align-items: center;
     justify-content: flex-start;
 
+    margin-top: 4rem;
+
     div#description {
         width: 80%;
         
+        padding-top: 4rem;
         margin-bottom: 4rem;
         
         display: flex;
@@ -80,11 +83,32 @@ export const FooterContainer = styled.div`
     }
 
     @media screen and (min-width: 991.98px) {
+        margin-top: 7.4rem;
+
         div#description {
             width: 27.2rem;
             height: 30.5rem;
+            
             justify-content: center;
+            
             margin-bottom: 0;
+            padding: 0;
+
+            img#footer-description-logo {
+                width: 15.5rem;
+            }
+
+            p#footer-description-text {
+                font-size: 1.4rem;
+            }
+
+            section#footer-description-social-media-logos {
+                width: 70%;
+                ul > li.footer-description-social-media-logos-icon {
+                    width: 3.5rem;
+                }
+            }
+            
             
         }
         div#copy {
@@ -101,7 +125,10 @@ export const FooterContainer = styled.div`
                 flex-direction: row;
                 align-items: center;
                 justify-content: space-evenly;
+                
                 width: 80%;
+
+                font-size: 1.4rem;
             }
         }
         }

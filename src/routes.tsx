@@ -39,8 +39,8 @@ const Routes: React.FC = () => {
           </ColorAndTamponadeProvider>
         </ContactProvider>
       </FurnitureProvider>
-      <Footer />
     </Container>
+      <Footer />
   </BrowserRouter>);
 }
 
