@@ -1,0 +1,45 @@
+div#video-container {
+    text-align: center;
+}
+
+div#video-container > h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+div#video-container > p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+div#youtube-video-embed {
+    margin-bottom: 2rem
+}
+
+div#video-container > button {
+    height: 5rem;
+}
+
+
+@media screen and (min-width: 991.98px) {
+    div#video-container {
+        width: 75rem;
+    }
+
+    div#video-container > h1 {
+        font-size: 4.8rem;
+        margin-bottom: 2.2rem;
+    }
+
+    div#video-container > p {
+        font-size: 1.8rem;
+        margin-bottom: 6rem;
+    }
+
+    div#video-container > button {
+        height: 8.5rem;
+        width: 36.2rem;
+    }
+    
+}

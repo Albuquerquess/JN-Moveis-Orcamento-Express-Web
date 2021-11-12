@@ -7,5 +7,9 @@ export const personalizeBaseUrl = {
 }
 
 export const furnituresBaseUrl = {
-    getFurnituresByRoom: '/furnitures/room'
+    getFurnituresByRoom: '/furnitures/room',
+    showFurnitures: '/furnitures/show',
+    indexVariations: '/variations/index',
+    indexColorAndTamponate: '/colors-and-tamponade',
+    indexRooms: '/rooms/index',
 }

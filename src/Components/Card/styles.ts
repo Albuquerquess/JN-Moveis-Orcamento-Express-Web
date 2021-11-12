@@ -95,6 +95,8 @@ export const CardContainer = styled.div<styleCardProps>`
                     input.length-of-furniture {
                         width: 100%;
                         height: 3.6rem;
+
+                        cursor: ${props => props.clicked && 'not-allowed'};
                         
                         background: var(--color-gray);
                         border-radius: .5rem;
@@ -104,6 +106,7 @@ export const CardContainer = styled.div<styleCardProps>`
 
                 section.card-variations {
                     margin-bottom: 2rem;
+                    cursor: ${props => props.clicked && 'not-allowed'};
                 }
 
                 button.card-button {
@@ -120,6 +123,8 @@ export const CardContainer = styled.div<styleCardProps>`
                     border-radius: .5rem;
 
                     margin-top: 1rem;
+
+                    cursor: pointer;
                     
                     div.label-wrapper {
                         width: 55%;

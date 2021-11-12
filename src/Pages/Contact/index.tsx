@@ -25,7 +25,6 @@ const Contact: React.FC = () => {
   const contactContext = React.useContext(ContactContext)
   const furnitureContext = React.useContext(FurnitureContext)
 
-
   async function saveContactsOnLocalStorage(contact: formContactSchema) {
     contactContext.setContactInfo(contact)
 

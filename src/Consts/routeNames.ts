@@ -3,10 +3,9 @@ const routeNames = {
     CONTACT: '/contato',
     PERSONALIZATION: '/orçamento/personalização',
     FURNITURES: '/orçamento/escolha_os_moveis',
-    SHOWFURNITURES: '/furnitures/show',
-    INDEXVARIATIONS: '/variations/index',
-    INDEXCOLORANDTAMPONADE: '/colors-and-tamponade',
-    INDEXROOMS: '/rooms/index',
+    VIDEO: '/entenda_mais',
+    BUDGET: '/orçamento_final'
+
 
 }
 

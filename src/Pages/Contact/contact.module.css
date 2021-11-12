@@ -27,6 +27,10 @@ div#container > form > div:last-of-type {
         width: 70%;
     }
 
+    div#container > form > button {
+        margin-top: 12rem;
+    }
+
     div#container > h1 {
         font-size: 4rem;
     }

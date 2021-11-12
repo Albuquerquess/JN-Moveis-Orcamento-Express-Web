@@ -7,7 +7,7 @@ import MediumPrice from '../../Assets/Static/SVGs/Components/Card/mediumPrice'
 import RainDrop from '../../Assets/Static/SVGs/Components/PricePreview/rainDrop'
 import Close from '../../Assets/Static/SVGs/Components/PricePreview/close'
 // Consts
-import routeNames from '../../Consts/routeNames'
+import { furnituresBaseUrl } from '../../Consts/baseURLs'
 import { ColorAndTamponadeContext } from '../../Context/colorAndTamponade'
 // Context
 import { FurnitureContext } from '../../Context/furnitures'
@@ -102,7 +102,7 @@ const PricePreview: React.FC = () => {
       if (allFurnitures && allFurnitures.length > 0) {
         const allFurnitureVariationsId = allFurnitures.map(furniture => furniture.variation_id)
         if (allFurnitureVariationsId) {
-          const response = await Api.get(routeNames.INDEXVARIATIONS, {
+          const response = await Api.get(furnituresBaseUrl.indexVariations, {
             params: {
               variations_id: allFurnitureVariationsId
             }

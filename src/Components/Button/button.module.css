@@ -6,6 +6,8 @@ button.container {
 
     border: none;
     border-radius: .5rem;
+
+    cursor: pointer;
 }
 
 a.link {

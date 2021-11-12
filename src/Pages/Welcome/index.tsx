@@ -14,14 +14,14 @@ import { FurnitureContext } from '../../Context/furnitures'
 // Service
 import Api from '../../Services/Api/api';
 // Consts
-import routeNames from '../../Consts/routeNames';
+import { furnituresBaseUrl } from '../../Consts/baseURLs';
 
 const Welcome: React.FC = () => {
   const furnitureContext = React.useContext(FurnitureContext)
   const { room_tag } = useParams<roomTagT>()
 
   async function addRommTagOnLocalStorage() {
-    const response = await Api.get(routeNames.INDEXROOMS)
+    const response = await Api.get(furnituresBaseUrl.indexRooms)
     const allRooms: allRoomsT[] = response.data
     const roomTags = allRooms.map(room => room.room_tag)
     const validRoomTag = roomTags.findIndex(roomTag => roomTag === room_tag) !== -1

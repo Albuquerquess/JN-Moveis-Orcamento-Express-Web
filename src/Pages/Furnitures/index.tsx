@@ -6,6 +6,7 @@ import { FurnitureCard } from '../../Components/Card/furnitureCard';
 import PricePreview from '../../Components/PricePreview';
 // Consts
 import { furnituresBaseUrl } from '../../Consts/baseURLs';
+import routeNames from '../../Consts/routeNames';
 // Context
 import { FurnitureContext } from '../../Context/furnitures';
 // Api
@@ -52,7 +53,7 @@ const Furnitures: React.FC = () => {
         )
       }
       <div id={furnitureStyles['furniture-button-container']}>
-        <Button />
+        <Button to={routeNames.VIDEO}/>
       </div>
 
       <PricePreview />
