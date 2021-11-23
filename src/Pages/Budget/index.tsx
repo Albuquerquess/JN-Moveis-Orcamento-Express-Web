@@ -15,6 +15,7 @@ import scrollToTop from '../../Utils/scrollToTop';
 import {BudgetContainer} from './styles'
 // Services
 import Api from '../../Services/Api/api';
+import routeNames from '../../Consts/routeNames';
 
 const Budget: React.FC = () => {
     const [furnitures, setFurnitures] = React.useState<budgetFurnituresWithLenghtT[]>()
@@ -168,7 +169,7 @@ const Budget: React.FC = () => {
                         </section>
                     </div>
 
-                    <Button />
+                    <Button to={routeNames.ACKNOWLEDGMENT}/>
                 </>
             )
         }

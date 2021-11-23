@@ -12,7 +12,7 @@ import { ColorAndTamponadeProvider } from './Context/colorAndTamponade'
 import { FurnitureProvider } from './Context/furnitures'
 import { PriceProvider } from './Context/price'
 // Consts
-import routesNames from './Consts/routeNames'
+import routeNames from './Consts/routeNames'
 // Pages
 import Welcome from './Pages/Welcome';
 import Contact from './Pages/Contact';
@@ -20,6 +20,7 @@ import Personalization from './Pages/Personalization';
 import Furnitures from './Pages/Furnitures';
 import Video from './Pages/Video';
 import Budget from './Pages/Budget';
+import Acknowledgment from './Pages/Acknowledgment';
 
 const Routes: React.FC = () => {
   return (
@@ -32,12 +33,13 @@ const Routes: React.FC = () => {
           <ColorAndTamponadeProvider>
             <PriceProvider>
               <Switch>
-                <Route exact path={routesNames.WELCOME} component={Welcome}/>
-                <Route exact path={routesNames.CONTACT} component={Contact}/>
-                <Route exact path={routesNames.PERSONALIZATION} component={Personalization}/>
-                <Route exact path={routesNames.FURNITURES} component={Furnitures} />
-                <Route exact path={routesNames.VIDEO} component={Video} />
-                <Route exact path={routesNames.BUDGET} component={Budget} />
+                <Route exact path={routeNames.WELCOME} component={Welcome}/>
+                <Route exact path={routeNames.CONTACT} component={Contact}/>
+                <Route exact path={routeNames.PERSONALIZATION} component={Personalization}/>
+                <Route exact path={routeNames.FURNITURES} component={Furnitures} />
+                <Route exact path={routeNames.VIDEO} component={Video} />
+                <Route exact path={routeNames.BUDGET} component={Budget} />
+                <Route exact path={routeNames.ACKNOWLEDGMENT} component={Acknowledgment} />
               </Switch>
             </PriceProvider>
           </ColorAndTamponadeProvider>

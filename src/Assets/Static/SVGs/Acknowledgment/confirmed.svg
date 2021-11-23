@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="226" height="226" viewBox="0 0 226 226">
+  <defs>
+    <clipPath id="clip-path">
+      <circle id="Elipse_9" data-name="Elipse 9" cx="113" cy="113" r="113" transform="translate(847 592)" fill="#ff4848"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.508" y2="0.635" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-opacity="0.161"/>
+      <stop offset="1" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g id="Grupo_302" data-name="Grupo 302" transform="translate(-847 -592)">
+    <circle id="Elipse_8" data-name="Elipse 8" cx="113" cy="113" r="113" transform="translate(847 592)" fill="#00d84f"/>
+    <g id="Grupo_de_máscara_1" data-name="Grupo de máscara 1" clip-path="url(#clip-path)">
+      <path id="Caminho_506" data-name="Caminho 506" d="M.3,15.385l119.542.167L120,151H0Z" transform="translate(927.858 747.491) rotate(-45)" fill="url(#linear-gradient)"/>
+    </g>
+    <g id="Grupo_272" data-name="Grupo 272" transform="translate(840.883 590.665)">
+      <g id="Grupo_271" data-name="Grupo 271" transform="translate(54.66 65.997)">
+        <path id="Caminho_505" data-name="Caminho 505" d="M50,75.5,23.312,48.7,6.29,65.838,50,109.66l84.422-84.652L117.4,7.87Z" transform="translate(-6.29 -7.87)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

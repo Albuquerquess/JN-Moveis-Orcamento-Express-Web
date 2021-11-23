@@ -20,6 +20,7 @@ import './PBModify.css';
 import progressBarStyles from './progressBar.module.css';
 // Consts
 import routeNames from '../../Consts/routeNames';
+import pagesWithProgressBar from '../../Consts/pagesWithProgressBar';
 
 const ProgressBar: React.FC<progressBarProps> = () => {
   const location = useLocation()
@@ -30,8 +31,12 @@ const ProgressBar: React.FC<progressBarProps> = () => {
     if (pathname === routeNames.PERSONALIZATION) return 50
     if (pathname === routeNames.FURNITURES) return 75
     if (pathname === routeNames.BUDGET) return 100
+
   }
-  return <div id={progressBarStyles.pgContainer}>
+
+  const displayOn = pagesWithProgressBar.includes(pathname)
+  
+  return <div id={progressBarStyles.pgContainer} style={{display: displayOn ? 'block' : 'none'}} >
     <PB percent={percent()} filledBackground="#9B9B9B">
     <Step>
     {({ accomplished, index }: any) => (
