@@ -19,6 +19,7 @@ import Contact from './Pages/Contact';
 import Personalization from './Pages/Personalization';
 import Furnitures from './Pages/Furnitures';
 import Video from './Pages/Video';
+import Budget from './Pages/Budget';
 
 const Routes: React.FC = () => {
   return (
@@ -36,6 +37,7 @@ const Routes: React.FC = () => {
                 <Route exact path={routesNames.PERSONALIZATION} component={Personalization}/>
                 <Route exact path={routesNames.FURNITURES} component={Furnitures} />
                 <Route exact path={routesNames.VIDEO} component={Video} />
+                <Route exact path={routesNames.BUDGET} component={Budget} />
               </Switch>
             </PriceProvider>
           </ColorAndTamponadeProvider>

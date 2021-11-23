@@ -80,7 +80,7 @@ const PricePreview: React.FC = () => {
   const currentTamponade =          colorAndTamponadeContext.furnitureTamponade
   const setCurrentTamponade =    colorAndTamponadeContext.setFurnitureTamponade
   const room_tag =                              furnitureContext.currentRoomTag
-
+  
   const [fullValue, setFullValue] =                            React.useState(0)
   const [ clicked, setClicked ] =                          React.useState(false)
   const defaultColorType = () => {
@@ -161,7 +161,7 @@ const PricePreview: React.FC = () => {
 
 
   React.useEffect(() => {
-    console.log(currentColor, currentTamponade)
+    
     async function pricePewiew() {
       const variations = await getVariationData()
       calcFullValue(variations)

@@ -60,3 +60,14 @@ export interface variationsOnBackendT {
     percentage_by_tamponade: number,
     variation_value: number
 }
+
+export interface budgetFurnituresT {
+    id: integer,
+    furniture_tag: string,
+    furniture_name: string,
+    room_tag_ref: string,
+}
+
+export interface budgetFurnituresWithLenghtT extends  budgetFurnituresT {
+    lengthOfFurniture: number,
+}

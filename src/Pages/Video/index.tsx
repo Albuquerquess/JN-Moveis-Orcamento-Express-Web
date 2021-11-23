@@ -12,6 +12,8 @@ import Button from '../../Components/Button';
 // Styles
 import './video.css'
 import routeNames from '../../Consts/routeNames';
+// Utils
+import scrollToTop from '../../Utils/scrollToTop';
 
 const Video: React.FC = () => {
   const [roomName, setRoomName] = React.useState('')
@@ -25,6 +27,7 @@ const Video: React.FC = () => {
   }
   React.useLayoutEffect(() => {
     getRoomname()
+    scrollToTop()
   }, [])
 
   return <div id='video-container'>

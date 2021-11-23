@@ -29,7 +29,7 @@ const ProgressBar: React.FC<progressBarProps> = () => {
     if (pathname.includes(routeNames.CONTACT)) return 26
     if (pathname === routeNames.PERSONALIZATION) return 50
     if (pathname === routeNames.FURNITURES) return 75
-    if (pathname === 'a') return 100
+    if (pathname === routeNames.BUDGET) return 100
   }
   return <div id={progressBarStyles.pgContainer}>
     <PB percent={percent()} filledBackground="#9B9B9B">

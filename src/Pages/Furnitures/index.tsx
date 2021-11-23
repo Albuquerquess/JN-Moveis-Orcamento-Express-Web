@@ -13,6 +13,8 @@ import { FurnitureContext } from '../../Context/furnitures';
 import Api from '../../Services/Api/api';
 // Types
 import { furnituresByRoom } from '../../Types/furnitures';
+// Utils
+import scrollToTop from '../../Utils/scrollToTop';
 // Styles
 import furnitureStyles from './furniture.module.css';
 
@@ -33,6 +35,7 @@ const Furnitures: React.FC = () => {
     }
     React.useEffect(() => {
         getFurnituresByRoom()
+        scrollToTop()
     }, [])
 
 
