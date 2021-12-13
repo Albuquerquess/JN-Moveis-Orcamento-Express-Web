@@ -1,4 +1,5 @@
 const routeNames = {
+    DEFAULT: '/',
     WELCOME: '/bem_vindo/:room_tag',
     CONTACT: '/contato',
     PERSONALIZATION: '/orçamento/personalização',
@@ -7,8 +8,7 @@ const routeNames = {
     BUDGET: '/orçamento_final',
     ACKNOWLEDGMENT: '/obrigado',
     HOME: '/home',
-
-
+    ANY: '*'
 }
 
 export default routeNames

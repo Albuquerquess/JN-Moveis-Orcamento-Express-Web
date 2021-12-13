@@ -9,8 +9,6 @@ import { contactBaseURLs } from '../../Consts/baseURLs';
 // Context
 import { ContactContext } from '../../Context/contact';
 import { FurnitureContext } from '../../Context/furnitures';
-// initialValues
-import { contactInitialValues } from '../../InitialValues/contactInitialValues';
 // Schema
 import { contactSchema } from '../../Schema/Form/contacInformation';
 // Service
@@ -24,9 +22,18 @@ const Contact: React.FC = () => {
   const history = useHistory()
   const contactContext = React.useContext(ContactContext)
   const furnitureContext = React.useContext(FurnitureContext)
-
+  
+  const contactInitialValues = () => {
+    return {
+      fullname:  contactContext.fullname || '',
+      email: contactContext.email || '',
+      phone: contactContext.phone || '',
+    }
+  }
   async function saveContactsOnLocalStorage(contact: formContactSchema) {
-    contactContext.setContactInfo(contact)
+    contactContext.setEmail(contact.email)
+    contactContext.setPhone(contact.phone)
+    contactContext.setFullname(contact.fullname)
 
     const registerLead = await Api.post(contactBaseURLs.registerLeads, {
       email: contact.email,
@@ -39,10 +46,11 @@ const Contact: React.FC = () => {
     }
   }
 
+
   return <div id={contactStyles.container}>
     <h1>Informações de contato</h1>
-    <Form validationSchema={contactSchema} onSubmit={(values) => saveContactsOnLocalStorage(values)} initialValues={contactInitialValues}>
-      <Input type="text" field="fullname" placeholder="Insira o seu nome completo" label="Nome completo: " />
+    <Form validationSchema={contactSchema} onSubmit={(values) => saveContactsOnLocalStorage(values)} initialValues={contactInitialValues()}>
+      <Input type="text" field="fullname" placeholder="Insira o seu nome completo" label="Nome completo: "/>
       <Input type="text" field="phone" placeholder="Insira o seu celular" label="Celular: " />
       <Input type="text" field="email" placeholder="Insira o seu email" label="Email: " />
       <Button type="submit" to="#"/>

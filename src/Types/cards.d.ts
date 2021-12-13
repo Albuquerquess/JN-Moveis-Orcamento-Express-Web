@@ -7,11 +7,14 @@ export interface selectVariations {
     label: React.HTMLDivElement;
 }
 
+
+
 export interface cardProps {
     variations?: selectVariations[];    
     title?: string;
     description?: string;
-    setCurrentValue: Dispatch<SetStateAction<string>>
+    setCurrentValue: Dispatch<SetStateAction<string>>,
+    defaultValue?: any
 }
 
 export interface styleCardProps {
@@ -37,4 +40,10 @@ export interface furnitureCardProps {
     roomTag: string;
     furniture_tag: string
     
+}
+
+export interface roomCardProps {
+    roomName: string;
+    description: string;
+    roomTag: string;
 }

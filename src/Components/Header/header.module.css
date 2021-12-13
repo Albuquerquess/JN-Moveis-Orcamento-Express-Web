@@ -1,21 +1,21 @@
 header#container {
-    display: flex;
-    justify-content: center;
-    
-    width: 100%;
-    margin-bottom: 5rem;
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  margin-bottom: 5rem;
 }
 
 img#logo {
-    width: 38%;
+  width: 38%;
 }
 
-@media screen and (min-width:  767.98px){
-    header#container {
-        margin-bottom: 14rem;
-    }
+@media screen and (min-width: 767.98px) {
+  header#container {
+    margin-bottom: 6rem;
+  }
 
-    img#logo {
-        width: 15.5rem;
-    }
+  img#logo {
+    width: 15.5rem;
+  }
 }

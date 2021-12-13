@@ -114,6 +114,8 @@ export const PricePreviewContainer = styled.div<pricePreviewProps>`
     @media screen and (min-width:  991.98px){
         height: 10rem;
 
+        margin-bottom: 0;
+
         div.price-preview-wrapper {
             margin-top: 0;
             align-items: center;

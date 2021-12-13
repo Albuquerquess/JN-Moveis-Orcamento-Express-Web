@@ -15,14 +15,14 @@ export interface furnitures {
     variations: variations[]
 }
 
-interface room {
+export interface IRoom {
     room_tag: string,
     room_name: string
 }
 
 export interface furnituresByRoom {
     furnitures: furniture[]
-    room: room
+    room: IRoom
 }
 
 export interface removeFurnitureOnLocalStorageT {
@@ -44,6 +44,10 @@ export interface getFurnitureT {
 
 export interface RoomTagT {
     room_tag: string
+}
+
+export interface RoomNameT {
+    room_name: string
 }
 
 export interface allRoomsT {

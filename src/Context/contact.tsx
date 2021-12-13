@@ -3,31 +3,29 @@ import usePersistedState from '../Hooks/usePersistentSate';
 // Types
 import { formContactSchema } from '../Types/forms'
 
-const contactInitialState = {
-  getContactInfo: () => {},
-  setContactInfo: (contact: formContactSchema) => {}
+type contactInitialState = {
+  email: string,
+  fullname: string,
+  phone: string,
+  setEmail(email: string): void,
+  setFullname(email: string): void,
+  setPhone(email: string): void,
 }
-export const ContactContext  = React.createContext(contactInitialState)
+export const ContactContext  = React.createContext({} as contactInitialState)
 
 export const ContactProvider: React.FC = ({children}) => {
   const [email, setEmail] = usePersistedState('email', null)
   const [fullname, setFullname] = usePersistedState('fullname', null)
   const [phone, setPhone] = usePersistedState('phone', null)
-  // Fazer 3 states com as informações de email, nome completo e telefone e armazenar os dados dentro deles
-  function getContactInfo() {
 
-    return {email, fullname, phone}
-  }
-
-  function setContactInfo({email, phone, fullname}: formContactSchema) {
-
-    setEmail(email)
-    setFullname(fullname)
-    setPhone(phone)
-
-  }
-
-  return <ContactContext.Provider value={{getContactInfo, setContactInfo}}>
+  return <ContactContext.Provider value={{
+    email,
+    setEmail,
+    fullname,
+    setFullname,
+    phone,
+    setPhone
+  }}>
     {children}
   </ContactContext.Provider>;
 }

@@ -61,6 +61,37 @@ export const BudgetContainer = styled.div`
 
     }
 
+    div#button-container {
+        & > button:first-child {
+            margin-bottom: 1rem
+        }
+
+        & > button#budget-download {
+            width: 100%;
+            height: 5rem;
+            
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            
+            cursor: pointer;
+            
+            border-radius: 0.5rem;
+            border: 1px solid var(--color-black);
+
+            font-size: 1.8rem;
+            font-weight: bold;
+
+            background: var(--color-white);
+
+            & > svg {
+                margin-right: 1rem;
+            }
+            
+        }
+    }
+
     @media screen and (min-width: 991.98px) {
         width: 59vw;
 
@@ -107,6 +138,10 @@ export const BudgetContainer = styled.div`
                     width: 57rem;
             }
             }
+         }
+
+         div#button-container {
+             width: 45%;
          }
     }
 `;

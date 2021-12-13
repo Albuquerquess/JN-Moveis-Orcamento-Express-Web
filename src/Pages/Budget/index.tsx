@@ -1,42 +1,52 @@
 import React from 'react';
+import DownloadIcon from '../../Assets/Static/SVGs/Budget/download';
 // Assets
-import Illustrator from '../../Assets/Static/SVGs/Components/Budget/ilustration.svg'
+import Illustrator from '../../Assets/Static/SVGs/Components/Budget/ilustration.svg';
 // Components
 import Button from '../../Components/Button';
 import { furnituresBaseUrl } from '../../Consts/baseURLs';
+import routeNames from '../../Consts/routeNames';
+import { ColorAndTamponadeContext } from '../../Context/colorAndTamponade';
+import { ContactContext } from '../../Context/contact';
 // Context
 import { FurnitureContext } from '../../Context/furnitures';
-import { ColorAndTamponadeContext } from '../../Context/colorAndTamponade';
+import generateBudgetInPDF from '../../Reports/Buget/makeBudget';
+// Services
+import Api from '../../Services/Api/api';
 // Types
 import { budgetFurnituresT, budgetFurnituresWithLenghtT, variationsOnBackendT } from '../../Types/furnitures';
+import camelize from '../../Utils/camelize';
+import history from '../../Utils/history';
 // Utils
 import scrollToTop from '../../Utils/scrollToTop';
 // Styles
-import {BudgetContainer} from './styles'
-// Services
-import Api from '../../Services/Api/api';
-import routeNames from '../../Consts/routeNames';
+import { BudgetContainer } from './styles';
 
 const Budget: React.FC = () => {
+    const [fullValue, setFullValue] = React.useState(0)
+    const contactContext = React.useContext(ContactContext)
+    const furnitureContext = React.useContext(FurnitureContext)
+    const colorAndTamponadeContext = React.useContext(ColorAndTamponadeContext)
     const [furnitures, setFurnitures] = React.useState<budgetFurnituresWithLenghtT[]>()
-    const [fullValue, setFullValue] =                                 React.useState(0)
-    const furnitureContext =                         React.useContext(FurnitureContext)
-    const colorAndTamponadeContext =         React.useContext(ColorAndTamponadeContext)
-    const room_tag =                                    furnitureContext.currentRoomTag
-    const allFurnitures =                      furnitureContext.currentFurnituresByRoom
-    const currentColor =                        colorAndTamponadeContext.furnitureColor
-    const setCurrentColor =                  colorAndTamponadeContext.setFurnitureColor
-    const currentTamponade =                colorAndTamponadeContext.furnitureTamponade
-    const setCurrentTamponade =          colorAndTamponadeContext.setFurnitureTamponade
 
+    const room_tag = furnitureContext.currentRoomTag
+    const currentColor = colorAndTamponadeContext.furnitureColor
+    const allFurnitures = furnitureContext.currentFurnituresByRoom
+    const currentTamponade = colorAndTamponadeContext.furnitureTamponade
+    const clientName = contactContext.fullname
+    const budgetCreationDate = new Date().toLocaleString()
     
     async function getFurnituresOnBackend() {
         const furnituresOnLocalStorage = furnitureContext.currentFurnituresByRoom
     
-        const furnitures_tags = furnituresOnLocalStorage.map(furniture => furniture.furniture_tag)
-        if (furnitures_tags.length) {
+        const furniture_tags = 
+            furnituresOnLocalStorage
+                && 
+            furnituresOnLocalStorage.map(furniture => furniture.furniture_tag)
+
+        if (furniture_tags && furniture_tags.length) {
             const furnituresOnBackend = await Api.get(furnituresBaseUrl.showFurnitures, {
-                params: {furnitures_tags}
+                params: {furniture_tags}
             })
 
             const furnituresRef: budgetFurnituresT[] = furnituresOnBackend.data
@@ -49,6 +59,8 @@ const Budget: React.FC = () => {
                 })
                 setFurnitures(furnituresWithLength)
             }
+        } else {
+            history.push(routeNames.HOME)
         }
     
     }
@@ -61,9 +73,9 @@ const Budget: React.FC = () => {
           if (allFurnitures && allFurnitures.length > 0) {
             const allFurnitureVariationsId = allFurnitures.map(furniture => furniture.variation_id)
             if (allFurnitureVariationsId) {
-              const response = await Api.get(furnituresBaseUrl.indexVariations, {
+              const response = await Api.get(furnituresBaseUrl.showVariations, {
                 params: {
-                  variations_id: allFurnitureVariationsId
+                  variation_ids: allFurnitureVariationsId
                 }
               })
       
@@ -117,8 +129,6 @@ const Budget: React.FC = () => {
         setFullValue(0)
     }
     }
-    
-    
 
     React.useEffect(() => {
         scrollToTop()
@@ -129,12 +139,12 @@ const Budget: React.FC = () => {
     }, [])
     React.useEffect(() => {
     
-        async function pricePewiew() {
-          const variations = await getVariationData()
-          calcFullValue(variations)
-        }
-        pricePewiew()
-      }, [currentColor, currentTamponade, allFurnitures])
+    async function pricePewiew() {
+        const variations = await getVariationData()
+        calcFullValue(variations)
+    }
+    pricePewiew()
+    }, [currentColor, currentTamponade, allFurnitures])
 
   return <BudgetContainer>
         {
@@ -145,7 +155,7 @@ const Budget: React.FC = () => {
                             <h1>Orçamento</h1>
                             <h5 id="subtitle">Resumo do que foi orçado</h5>
                             <div id="client-infos" className="budget-box">
-                                <p><span className="bold-text">Cliente: </span>João Silva dos Santos</p>
+                                <p><span className="bold-text">Cliente: </span>{clientName ? camelize(clientName) : 'Cliente JN'}</p>
                                 <p><span className="bold-text">Projetista JN: </span>Cristiane Alcântara</p>
                             </div>
                             <div id="furnitures-info" className="budget-box">
@@ -168,8 +178,19 @@ const Budget: React.FC = () => {
                         <img src={Illustrator} alt="JN MÓVEIS PLANEJADOS" />
                         </section>
                     </div>
-
-                    <Button to={routeNames.ACKNOWLEDGMENT}/>
+                    <div id="button-container">
+                        <Button label="Continuar" to={routeNames.ACKNOWLEDGMENT}/>
+                        <button id="budget-download" onClick={() => generateBudgetInPDF({
+                            furnitures: allFurnitures,
+                            clientName,
+                            color: currentColor,
+                            tamponade: currentTamponade,
+                            date: budgetCreationDate
+                        })}>
+                            <DownloadIcon />
+                            <span>Baixar orçamento</span>
+                        </button>
+                    </div>
                 </>
             )
         }

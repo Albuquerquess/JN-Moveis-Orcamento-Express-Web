@@ -102,9 +102,9 @@ const PricePreview: React.FC = () => {
       if (allFurnitures && allFurnitures.length > 0) {
         const allFurnitureVariationsId = allFurnitures.map(furniture => furniture.variation_id)
         if (allFurnitureVariationsId) {
-          const response = await Api.get(furnituresBaseUrl.indexVariations, {
+          const response = await Api.get(furnituresBaseUrl.showVariations, {
             params: {
-              variations_id: allFurnitureVariationsId
+              variation_ids: allFurnitureVariationsId
             }
           })
   

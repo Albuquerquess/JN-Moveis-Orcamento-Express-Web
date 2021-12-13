@@ -37,7 +37,7 @@ const ProgressBar: React.FC<progressBarProps> = () => {
   const displayOn = pagesWithProgressBar.includes(pathname)
   
   return <div id={progressBarStyles.pgContainer} style={{display: displayOn ? 'block' : 'none'}} >
-    <PB percent={percent()} filledBackground="#9B9B9B">
+    <PB percent={percent()} filledBackground="#00d84f">
     <Step>
     {({ accomplished, index }: any) => (
       <div className={`${progressBarStyles.iconWrapper} indexedStep ${accomplished ? "accomplished" : ""}`}>

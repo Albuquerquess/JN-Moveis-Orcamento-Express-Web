@@ -6,19 +6,22 @@ import Facebook from '../../Assets/Static/SVGs/Footer/facebook.svg'
 import Youtube from '../../Assets/Static/SVGs/Footer/youtube.svg'
 // Styles
 import { FooterContainer } from './styles';
+import routeNames from '../../Consts/routeNames';
 
 const Footer: React.FC = () => {
   return <FooterContainer>
     <div id="description">
-      <img id="footer-description-logo" src={Logo} alt="JN Móveis Planejados" />
+      <a href={routeNames.HOME}>
+        <img id="footer-description-logo" src={Logo} alt="JN Móveis Planejados" />
+      </a>
       <p id="footer-description-text">
       Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
       </p>
       <section id="footer-description-social-media-logos">
         <ul>
-          <li className="footer-description-social-media-logos-icon"><a href="https://www.instagram.com/jn.moveisplanejados/" target="_blank"><img src={Instagram} alt="Instagram" /></a></li>
-          <li className="footer-description-social-media-logos-icon"><a href="https://www.facebook.com/jnmoveisplanejados.rn/" target="_blank"><img src={Facebook} alt="Facebook" /></a></li>
-          <li className="footer-description-social-media-logos-icon"><a href="https://www.instagram.com/jn.moveisplanejados/" target="_blank"><img src={Youtube} alt="Youtube" /></a></li>
+          <li className="footer-description-social-media-logos-icon"><a href="https://www.instagram.com/jn.moveisplanejados/" target="_blank" rel="noreferrer"><img src={Instagram} alt="Instagram" /></a></li>
+          <li className="footer-description-social-media-logos-icon"><a href="https://www.facebook.com/jnmoveisplanejados.rn/" target="_blank" rel="noreferrer"><img src={Facebook} alt="Facebook" /></a></li>
+          <li className="footer-description-social-media-logos-icon"><a href="https://www.instagram.com/jn.moveisplanejados/" target="_blank" rel="noreferrer"><img src={Youtube} alt="Youtube" /></a></li>
         </ul>
       </section>
     </div>

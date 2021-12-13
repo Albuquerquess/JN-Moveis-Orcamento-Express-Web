@@ -15,7 +15,7 @@ export interface inputProps {
     type: string
     label: string
     field: string
-    placeholder: string
+    placeholder: string,
 }
 
 export interface formError {

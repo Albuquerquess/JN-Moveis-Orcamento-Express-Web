@@ -2,6 +2,10 @@ import styled from 'styled-components';
 // Types
 import { styleCardProps } from '../../Types/cards';
 
+interface IroomCart {
+    backgroundImage: string
+}
+
 export const CardContainer = styled.div<styleCardProps>`
     width: 100%;
     min-height: 44rem;
@@ -233,3 +237,70 @@ export const CardContainer = styled.div<styleCardProps>`
         }
     }
 `;
+
+export const RoomCardContainer = styled.div<IroomCart>`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1.5rem;
+    background: var(--color-light-gray);
+
+    div.card-wrapper {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+        section.card-header {
+            height: 24.6rem;
+            width: 100%;
+            
+            border-radius: .5rem;
+            margin-bottom: 2rem;
+
+            background: var(--color-gray);
+            background-image: url(${props => props.backgroundImage});
+
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-position-x: center;
+            background-position-y: center;
+            background-size: cover;
+        }
+
+        section.card-body {
+            p.title {
+                font-size: 1.4rem;
+                font-weight: bold;
+                margin-bottom: 1rem;
+            }
+
+            p.description {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+                line-height: 2.4rem;
+            }
+        }
+    }
+
+    @media screen and (min-width: 991.98px) {
+        div.card-wrapper {
+            section.card-body {
+                p.title {
+                    font-size: 3.2rem;
+                }
+
+                p.description {
+                    font-size: 2rem;
+                    font-weight: 300;
+                }
+
+                
+            }
+        }
+    }
+
+`

@@ -3,7 +3,7 @@ import usePersistedState from '../Hooks/usePersistentSate';
 // Types
 import {
     FurnitureOnLocalStorageT,
-    getFurnitureT, removeFurnitureOnLocalStorageT, RoomTagT
+    getFurnitureT, removeFurnitureOnLocalStorageT, RoomNameT, RoomTagT
 } from '../Types/furnitures';
 
 
@@ -12,8 +12,11 @@ interface furnitureInitialValues {
     getFurniture(furniture: getFurnitureT): FurnitureOnLocalStorageT,
     removeFurnitureFromLocalStorage(removeFurniture: removeFurnitureOnLocalStorageT): void
     currentRoomTag: string,
+    currentRoomName: string
     setRoomTag(roomTag: RoomTagT): void,
+    setRoomName(roomName: RoomNameT): void,
     currentFurnituresByRoom: FurnitureOnLocalStorageT[],
+    removeAllFurnituresFromLocalStorage(): void
 }
 
 export const FurnitureContext = React.createContext({} as furnitureInitialValues)
@@ -21,19 +24,20 @@ export const FurnitureContext = React.createContext({} as furnitureInitialValues
 export const FurnitureProvider: React.FC = ({
     children
 }) => {
-    const roomTag = getRoomTag()
     const [currentRoomTag, setcurrentRoomTag] = usePersistedState('room-tag', null)
-    const [currentFurnituresByRoom, setcurrentFurnituresByRoom] = usePersistedState(roomTag, null)
-
-    function getRoomTag() {
-        const room_tag = localStorage.getItem('room-tag')
-        return room_tag || ''
-    }
+    const [currentRoomName, setCurrentRoomName] = usePersistedState('room-name', null)
+    const [currentFurnituresByRoom, setcurrentFurnituresByRoom] = usePersistedState(currentRoomTag, null)
 
     function setRoomTag({
         room_tag
     }: RoomTagT) {
         setcurrentRoomTag(room_tag)
+    }
+    
+    function setRoomName({
+        room_name
+    }: RoomNameT) {
+        setcurrentRoomTag(room_name)
     }
 
     function getFurniture({
@@ -101,6 +105,10 @@ export const FurnitureProvider: React.FC = ({
             alert('Não existem móveis relacionados a este cômodo.')
         }
     }
+    
+    function removeAllFurnituresFromLocalStorage() {
+        return setcurrentFurnituresByRoom(null)
+    }
 
     return <FurnitureContext.Provider value = {
             {
@@ -109,7 +117,10 @@ export const FurnitureProvider: React.FC = ({
                 getFurniture,
                 currentFurnituresByRoom,
                 setNewFurniture,
-                removeFurnitureFromLocalStorage
+                removeFurnitureFromLocalStorage,
+                currentRoomName,
+                setRoomName,
+                removeAllFurnituresFromLocalStorage
             }
         }> {
             children

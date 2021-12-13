@@ -21,6 +21,7 @@ import Furnitures from './Pages/Furnitures';
 import Video from './Pages/Video';
 import Budget from './Pages/Budget';
 import Acknowledgment from './Pages/Acknowledgment';
+import Home from './Pages/Home';
 
 const Routes: React.FC = () => {
   return (
@@ -40,6 +41,8 @@ const Routes: React.FC = () => {
                 <Route exact path={routeNames.VIDEO} component={Video} />
                 <Route exact path={routeNames.BUDGET} component={Budget} />
                 <Route exact path={routeNames.ACKNOWLEDGMENT} component={Acknowledgment} />
+                <Route exact path={[routeNames.HOME, routeNames.DEFAULT]} component={Home} />
+                <Route exact path={routeNames.ANY} component={() => <h1>Essa página não existe</h1>} />
               </Switch>
             </PriceProvider>
           </ColorAndTamponadeProvider>
